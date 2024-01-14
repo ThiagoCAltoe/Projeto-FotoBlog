@@ -28,6 +28,7 @@ body {
   font-size: 1.6rem;
   background-color: var(--color-base-white);
   color: var(--color-base-gray-900);
+  overflow-y: hidden;
 }
 
 #app {
@@ -132,6 +133,8 @@ main h1 {
   transition-timing-function: ease-out; */
 
   transition: all 200ms ease-out;
+
+  display: block;
 }
 
 .item img:hover {
@@ -168,4 +171,33 @@ footer p {
   text-align: center;
   font-weight: 600;
   color: var(--color-base-gray-510);
+}
+
+header {
+  --startY: -100%;
+  animation: move 0.2s;
+}
+footer {
+  --startY: 100%;
+  animation: move 0.2s;
+}
+@keyframes move {
+  from {
+    transform: translateY(var(--startY));
+  }
+}
+
+.item {
+  --delay: 0.4s;
+  animation: appear 0.4s var(--delay) backwards;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  50% {
+    transform: scale(1.2);
+  }
 }
